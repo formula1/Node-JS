@@ -3,7 +3,7 @@ var ee = require('events').EventEmitter;
 var our_event = new ee();
 var our_async_event = new aee();
 
-our_async_event.on("the event!", function(e, next){
+our_async_event.on("the event!", function(data, next){
 	console.log("Async Event has emitted!");
 	setImmediate(next);
 });
@@ -31,10 +31,10 @@ our_event.once("the event!", function(){
 });
 
 process.nextTick(function(){
-	console.log("this happened the next Tick"); 
-	our_event.emit("the event!");
-	console.log("Back in the Process");
+	console.log("this happened the next Tick");
 	our_async_event.emit("the event!");
+	console.log("Back in the Process");
+	our_event.emit("the event!");
 	console.log("Still in the Process");
 });
 console.log("still in the main");
@@ -42,4 +42,3 @@ console.log("still in the main");
 function our_function(){
 	console.log("we're in the function");
 }
-
