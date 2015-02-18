@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/christinestraub/Node-JS",
   "dependencies": {
-    "async-eventemitter": "^0.2.2"
+    "async-eventemitter": "^0.2.2",
+    "box2d": "^1.0.0",
+    "browserify": "^8.1.3"
   }
 }
